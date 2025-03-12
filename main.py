@@ -4,14 +4,20 @@
 import pygame
 
 from constants import *
+from player import *
 
 def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
-    #pygame.time.Clock
     clock = pygame.time.Clock()
     dt = 0
+
+    x = SCREEN_WIDTH/2
+    y = SCREEN_HEIGHT/2
+    
+    player = Player(x, y)
+       
 
     while True:
         #check for window being closed by user
@@ -21,6 +27,12 @@ def main():
             
         #fill screen area in black
         screen.fill(000)
+
+        #draw player here
+        player.draw(screen)   
+
+
+
         pygame.display.flip()
 
         #limit framrate to 60fps
@@ -28,9 +40,7 @@ def main():
     
     
     
-    #print("Starting Asteroids!")
-    #print(f"Screen width: {SCREEN_WIDTH}")
-    #print(f"Screen height: {SCREEN_HEIGHT}")
+    
 
 
 if __name__ == "__main__":
