@@ -16,6 +16,11 @@ def main():
     x = SCREEN_WIDTH/2
     y = SCREEN_HEIGHT/2
     
+    #create groups
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+    Player.containers = (updatable, drawable)
+
     #instantiate Player object and store it in a variable
     player = Player(x, y)
        
@@ -29,23 +34,18 @@ def main():
         #fill screen area in black
         screen.fill(000)
 
+        #iterate over each item in the updatable group here
+        #for each in updatable:
+        #    each.update(dt)
+        updatable.update(dt)
+
+        #iterate over each item in the drawable group here
+        for item in drawable:
+            item.draw(screen)   
+
+        pygame.display.flip()  
         #limit framrate to 60fps
         dt = clock.tick(60)/1000
-
-        #insert rotate player functionality
-        player.update(dt)
-
-        #draw player here
-        player.draw(screen)   
-
-        
-        
-
-        pygame.display.flip()
-
-        #limit framrate to 60fps
-        #dt = clock.tick(60)/1000
-
 
 if __name__ == "__main__":
     main()
