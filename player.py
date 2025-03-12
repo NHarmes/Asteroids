@@ -6,13 +6,6 @@ class Player(CircleShape):
         super().__init__(x, y, PLAYER_RADIUS)
         self.rotation = 0
 
-        # Blank image for Group.draw() to work
-        ##self.image = pygame.Surface((self.radius * 2, self.radius * 2), pygame.SRCALPHA)
-
-        # Define rect (still necessary for collision detection, etc.)
-        ##self.rect = self.image.get_rect()
-        ##self.rect.center = (self.position.x, self.position.y)
-
     # in the player class
     def triangle(self):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
