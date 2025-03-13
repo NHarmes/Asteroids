@@ -1,7 +1,7 @@
 # this allows us to use code from
 # the open-source pygame library
 # throughout this file
-import pygame
+import pygame, sys
 
 from constants import *
 from player import *
@@ -29,8 +29,7 @@ def main():
 
     #instantiate Player object and store it in a variable
     player = Player(x, y)
-    asteroidfield = AsteroidField()
-       
+    asteroidfield = AsteroidField()   
 
     while True:
         #check for window being closed by user
@@ -40,6 +39,12 @@ def main():
 
         updatable.update(dt)
 
+        #check for collisions with player
+        for rock in asteroids:
+            if rock.collides(player) == True:
+                print("GameOver!")
+                sys.exit(0)
+            
         #fill screen area in black
         screen.fill(000)     
 
