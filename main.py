@@ -33,7 +33,7 @@ def main():
     #instantiate Player object and store it in a variable
     player = Player(x, y)
     asteroidfield = AsteroidField()   
-    #shot = Shot()
+    
 
     while True:
         #check for window being closed by user
@@ -48,7 +48,14 @@ def main():
             if rock.collides(player) == True:
                 print("GameOver!")
                 sys.exit(0)
-            
+
+        #check for collisions with asteroids
+        for rock in asteroids:
+            for shot in shots:
+                if rock.collides(shot) == True:
+                    rock.kill()
+                    shot.kill()
+
         #fill screen area in black
         screen.fill(000)     
 
