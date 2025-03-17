@@ -43,17 +43,16 @@ def main():
 
         updatable.update(dt)
         
-        #check for collisions with player
         for rock in asteroids:
+            #check for collisions with player
             if rock.collides(player) == True:
                 print("GameOver!")
                 sys.exit(0)
 
-        #check for collisions with asteroids
-        for rock in asteroids:
+            #check for collisions with asteroids
             for shot in shots:
                 if rock.collides(shot) == True:
-                    rock.kill()
+                    rock.split()
                     shot.kill()
 
         #fill screen area in black
