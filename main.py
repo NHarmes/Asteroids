@@ -42,7 +42,7 @@ def main():
                 return
 
         updatable.update(dt)
-
+        
         #check for collisions with player
         for rock in asteroids:
             if rock.collides(player) == True:
